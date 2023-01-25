@@ -13,11 +13,13 @@ int main(int ac, char **av)
 		{
 			if ((av[1][i] >= 'a' && av[1][i] <= 'z') || (av[1][i] >= 'A' && av[1][i] <= 'Z'))
 			{
+				k = 0;
 				j = av[1][i] - 'a';
-				printf("j = %d\n", j);
+				//printf("---j = %d\n", j);
 				while (k <= j)
 				{
 					write(1, &av[1][i], 1);
+					//printf("---k = %d\n", k);
 					k++;
 				}
 			}
