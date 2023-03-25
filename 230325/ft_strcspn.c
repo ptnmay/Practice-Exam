@@ -1,53 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 02:59:33 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/25 20:51:49 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/03/25 22:28:44 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/03/26 00:20:18 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-int ft_strlen(char *s)
+// size_t	ft_strcspn(const char *s, const char *reject)
+// {
+    
+// }
+
+
+//mew
+#include<stdio.h>
+#include<string.h>
+
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int i = 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
 	while (s[i])
-		i++;
-	return (i);
-}
-
-char    *ft_strdup(char *src)
-{
-	char *s;
-	int i = 0;
-	int j = 0;
-	int len = ft_strlen(src);
-
-	if (!src)
-		return (NULL);
-	s = malloc(sizeof(char) * len + 1);
-	while(src[i])
 	{
-		s[j] = src[i];
+		j = 0;
+		while (reject[j])
+		{
+			if (s[i] == reject[j])
+				return(i);
+			j++;
+		}
 		i++;
-		j++;
 	}
-	s[j] = '\0';
-	return(s);
+	return(i);
 }
 
-int main(void)
+int	main(void)
 {
-	char *s = "hello\n";
-	char *a = ft_strdup(s);
-	char *b = strdup(s);
-	printf("my dup = %s", a);
-	printf("real dup = %s", b);
+	printf("%lu\n" ,    strcspn("ABCDEF4960910", "z013"));
+	printf("%lu\n" ,    ft_strcspn("ABCDEF4960910", "z013"));
+    
 }

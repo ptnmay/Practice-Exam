@@ -1,53 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 02:59:33 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/25 20:51:49 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/03/25 21:48:20 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/03/25 22:19:59 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-int ft_strlen(char *s)
+int    ft_strcmp(char *s1, char *s2)
 {
-	int i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+    int i = 0;
+	int ans = 0;
 
-char    *ft_strdup(char *src)
-{
-	char *s;
-	int i = 0;
-	int j = 0;
-	int len = ft_strlen(src);
-
-	if (!src)
-		return (NULL);
-	s = malloc(sizeof(char) * len + 1);
-	while(src[i])
-	{
-		s[j] = src[i];
+	while(s1[i] && s2[i] && (s1[i] == s2[i]))
 		i++;
-		j++;
-	}
-	s[j] = '\0';
-	return(s);
+	ans = s1[i] - s2[i];
+	return(ans);
 }
 
 int main(void)
 {
-	char *s = "hello\n";
-	char *a = ft_strdup(s);
-	char *b = strdup(s);
-	printf("my dup = %s", a);
-	printf("real dup = %s", b);
+	char *s1 = "azd";
+	char *s2 = "abc";
+
+	printf("%d\n", ft_strcmp(s1, s2));
 }

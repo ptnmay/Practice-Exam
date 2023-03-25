@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 02:59:33 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/25 20:51:49 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/03/25 20:52:09 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/03/25 21:47:47 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,37 @@
 #include <stdlib.h>
 #include <string.h>
 
-int ft_strlen(char *s)
+int ft_len(char *s)
 {
-	int i = 0;
-	while (s[i])
-		i++;
-	return (i);
+    int i = 0;
+
+    while (s[i])
+        i++;
+    return (i);
 }
 
-char    *ft_strdup(char *src)
+char    *ft_strrev(char *str)
 {
-	char *s;
-	int i = 0;
-	int j = 0;
-	int len = ft_strlen(src);
-
-	if (!src)
-		return (NULL);
-	s = malloc(sizeof(char) * len + 1);
-	while(src[i])
-	{
-		s[j] = src[i];
-		i++;
-		j++;
-	}
-	s[j] = '\0';
-	return(s);
+    int i = 0;
+    int len = ft_len(str);
+    char ans;
+    
+    len = len - 1;
+    while (i < len)
+    {
+        ans = str[i];
+        str[i] = str[len];
+        str[len] = ans;
+        i++;
+        len--;
+    }
+    return(str);
 }
 
 int main(void)
 {
-	char *s = "hello\n";
-	char *a = ft_strdup(s);
-	char *b = strdup(s);
-	printf("my dup = %s", a);
-	printf("real dup = %s", b);
+    char str[] = "hello hi bla bla bla";
+    // char *s = ft_strrev(str);
+    printf("%s", ft_strrev(str));
+    printf("\n");
 }
