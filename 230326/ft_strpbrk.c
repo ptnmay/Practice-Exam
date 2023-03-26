@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:32:23 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/26 04:38:49 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:32:27 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char *ft_strpbrk(const char *s1, const char *s2)
 
 int main(void)
 {
-    printf("%s\n" ,   strpbrk("hello", "l"));
-    printf("%s\n" ,ft_strpbrk("hello", "l"));
+    printf("%s\n" ,   strpbrk("hello", "1"));
+    printf("%s\n" ,ft_strpbrk("hello", "1"));
 
 }
 
