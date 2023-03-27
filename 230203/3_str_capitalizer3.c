@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:13:11 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/02/03 12:47:00 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/28 04:50:01 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int ft_lower(char s)
 		return(1);
 	return(0);
 }
+
+
+//wrong
 
 int main(int ac, char **av)
 {
