@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_inter.c                                          :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 23:48:19 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/01/31 08:48:03 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/03/26 23:11:34 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/03/26 23:22:09 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int	ft_check(char *s1, char s2, int len)
+char    *ft_strrev(char *str)
 {
-	int i = 0;
+    int i = 0;
+    int len = 0;
+    char tmp;
 
-	while(s1[i] && (i < len || len == -1))
-	{
-		if (s1[i] == s2)
-			return(1);
-		i++;
-	}
-	return(0);
+    while(str[len])
+        len++;
+    len = len - 1; //index
+    while(i < len)
+    {
+        tmp = str[i];
+        str[i] = str[len];
+        str[len] = tmp;
+        i++;
+        len--;
+    }
+    return(str);
 }
 
-int main(int ac, char **av)
+int main()
 {
-	int i = 0;
-
-	if (ac == 3)
-	{
-		while
-	}
+    char s[] = "hello";
+    // char *str = ft_strrev(s);
+    printf("ft_strrev = %s\n", ft_strrev(s));
 }

@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 22:28:44 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/26 00:20:18 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/26 03:52:50 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t	ft_strcspn(const char *s, const char *reject)
 
 int	main(void)
 {
-	printf("%lu\n" ,    strcspn("ABCDEF4960910", "z013"));
-	printf("%lu\n" ,    ft_strcspn("ABCDEF4960910", "z013"));
+	printf("%lu\n" ,    strcspn("AzBCDEF4960910", "z013"));
+	printf("%lu\n" ,    ft_strcspn("AzBCDEF4960910", "z013"));
     
 }

@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:15:07 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/26 16:45:35 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:28:51 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ size_t	ft_strspn(const char *s, const char *accept)
     while(s[i])
     {
         if (ft_strchr(accept, s[i]) == 0)
-            return(i++);
+            return(i);
             // break ;
-        // i++;
-        ++i;        
+        i++;
+        // ++i;        
     }
     return (i);
 }
 
 int main(void)
 {
-    printf("strspn = %lu\n" ,      strspn("bhbbbbc","ab"));
-    printf("ft_strspn = %lu\n" ,ft_strspn("bhbbbbc","ab"));
+    printf("strspn = %lu\n" ,      strspn("bhbbbbc","bbh"));
+    printf("ft_strspn = %lu\n" ,ft_strspn("bhbbbbc","bbh"));
 }
