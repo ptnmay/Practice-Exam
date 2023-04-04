@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:43:23 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/05 01:43:17 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:51:12 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int main(int ac, char **av)
         int begin = 0;
         int end = 0;
         int flang = 0;
-
 
         while(av[1][i] && tapace(av[1][i]) == 1)
             i++;
