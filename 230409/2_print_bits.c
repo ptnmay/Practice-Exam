@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 00:35:01 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/09 00:45:35 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/09 01:52:52 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_bits(unsigned char octet)
 {
+    unsigned char bit = 0;
     int i = 8;
-    char bit = 0; //unsigned char
 
     while(i--)
     {
