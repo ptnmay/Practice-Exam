@@ -6,9 +6,11 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 00:38:05 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/09 00:45:21 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/09 01:53:23 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 unsigned char	reverse_bits(unsigned char octet)
 {
