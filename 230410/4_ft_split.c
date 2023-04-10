@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 01:41:16 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/10 01:49:59 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:16:25 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ char    **ft_split(char *str)
             i++;
         if (str[i])
             word = malloc(sizeof(char) * 50000);
+        //forget break ;
+        else
+            break ;
         while(str[i] && space(str[i]) == 0)
         {
             word[j] = str[i];
