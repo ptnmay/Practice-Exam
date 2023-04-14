@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 05:06:23 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/15 05:14:50 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:01:20 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int main()
 	int k = ft_strspn("hello", "oealh");
 	int l = strspn("hello", "oealh");
 
-	printf("%d\n", i);
-	printf("%d\n", j);
-	printf("%d\n", k);
-	printf("%d\n", l);
+	printf("str1 mine %d\n", i);
+	printf("str 1 real %d\n", j);
+	printf("str2 mine %d\n", k);
+	printf("str2 real %d\n", l);
 }

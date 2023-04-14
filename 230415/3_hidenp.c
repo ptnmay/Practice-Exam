@@ -6,12 +6,11 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 05:15:27 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/15 05:33:06 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:00:02 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 int main(int ac, char **av)
 {

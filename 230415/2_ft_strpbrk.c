@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 05:03:21 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/15 05:06:12 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:00:48 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int main()
 {
 	char *s = ft_strpbrk("helo", "a");
 	char *ss = ft_strpbrk("helo", "a");
-	printf("%s\n", s);
-	printf("%s\n", ss);
+	printf("mine %s\n", s);
+	printf("real %s\n", ss);
 }
