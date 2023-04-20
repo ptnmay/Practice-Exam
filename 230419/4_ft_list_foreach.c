@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 03:59:08 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/19 21:19:35 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:11:30 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ typedef struct    s_list
 
 void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-    t_list *list_ptr;
+	t_list *list_ptr;
 
 	list_ptr = begin_list;
 	while(list_ptr)
 	{
 		(*f)(list_ptr->data);
-		list_ptr = begin_list->next;
-	}
+		list_ptr = begin_list->next
+;	}
 }
