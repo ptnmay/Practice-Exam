@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 04:18:14 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/24 04:27:19 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/24 05:50:40 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char    **ft_split(char *str)
 
 int main()
 {
-    char **res = ft_split("    hel lo     world      ");
+    char **res = ft_split("    hel lo   world   ");
 
     printf("%s\n", res[0]);
     printf("%s\n", res[1]);

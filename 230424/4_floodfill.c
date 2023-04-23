@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 04:27:36 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/24 04:34:55 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/24 05:50:49 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void fill(char **tab, t_point size, t_point cur, char to_fill)
     if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
         || tab[cur.y][cur.x] != to_fill)
         return ;
+        
     tab[cur.y][cur.x] = 'F';
 
     fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
