@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_lst_foreach.c                                    :+:      :+:    :+:   */
+/*   3_lst_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 04:37:37 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/24 04:39:39 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/04/24 05:45:38 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/04/24 05:47:18 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct    s_list
 {
@@ -18,15 +19,31 @@ typedef struct    s_list
     void          *data;
 }                 t_list;
 
-void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+int	ft_list_size(t_list *begin_list)
 {
-    t_list *lst;
+    if (begin_list == NULL)
+        return(0);
+        
+    int i = 0;
 
-    lst = begin_list;
-
-    while(lst)
+    while(begin_list)
     {
-        (*f)(lst->data);
-        lst = lst->next;
+        begin_list = begin_list->next;
+        i++;
     }
+    return(i);
+}
+
+int main()
+{
+
+    t_list *lst = malloc(sizeof(t_list));
+    t_list *lst2 = malloc(sizeof(t_list));
+    t_list *lst3 = malloc(sizeof(t_list));
+
+    lst->next = lst2;
+    lst2->next = NULL;
+    // lst2->next = lst3;
+    // lst3->next = NULL;
+    printf("%d\n", ft_list_size(lst));
 }
