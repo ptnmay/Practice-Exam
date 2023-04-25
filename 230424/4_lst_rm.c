@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 04:40:27 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/24 05:33:01 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/04/24 22:15:21 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,25 @@ typedef struct      s_list
     void            *data;
 }                   t_list;
 
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+    if (begin_list == NULL || *begin_list == NULL)
+        return ;
+    
+    t_list *tmp = *begin_list;
+
+    // if ((tmp->data, data_ref, cmp) == 0) wrong
+    if (cmp(tmp->data, data_ref) == 0)
+    {
+        *begin_list = tmp->next;
+        free(tmp);
+        ft_list_remove_if(begin_list, data_ref, cmp);
+    }
+    tmp = *begin_list;
+    ft_list_remove_if(&tmp->next, data_ref, cmp);
+}
+
+//1
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
     if (begin_list == NULL || *begin_list == NULL)
