@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 01:36:45 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/04/27 01:40:02 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:41:04 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int	ft_printf(const char *format, ...)
 
 int main()
 {
-	printf("%s\n", "hello");
-	ft_printf("%s\n", "hello");
-	printf("%d\n", 12);
-	ft_printf("%d\n", 12);
-	printf("%x\n", 10);
-	ft_printf("%x\n", 10);
+	printf("real == %s\n", "hello");
+	ft_printf("== %s\n", "hello");
+	printf("real == %d\n", 12);
+	ft_printf("== %d\n", 12);
+	printf("real == %x\n", 10);
+	ft_printf("== %x\n", 10);
 }
