@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 08:13:17 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/06/23 09:01:48 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/06/23 10:01:59 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static int exec(char **av, char **envp, int i) {
 	int pid = fork();
 	if (!pid) {
 		av[i] = 0;
+		//wrong av[i] -> pip
 		if (av[i] && (dup2(fds[1], 1) == -1 || close(fds[0]) == -1 || close(fds[1]) == -1))
 			return(perr("fatal\n"), 1);
 		execve(*av, av, envp);
@@ -63,4 +64,4 @@ int main(int ac, char **av, char **envp) {
 	return(status);
 }
 
-//lasted
+//wrong
