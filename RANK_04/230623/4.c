@@ -1,65 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   microshell.c                                       :+:      :+:    :+:   */
+/*   4.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 05:35:10 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/06/23 06:55:29 by psaeyang         ###   ########.fr       */
+/*   Created: 2023/06/23 07:00:38 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/06/23 07:40:11 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <unistd.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 static void perr(char *s) {
-	while (*s)
+	while(*s)
 		write(2, s++, 1);
 }
 
-static int cd(char **argv, int i) {
+static int cd(char **av, int i) {
 	if (i != 2)
-		return (perr("error: cd: bad arguments\n"), 1);
-	else if (chdir(argv[1]) == -1)
-		return (perr("error: cd: cannot change directory to "), perr(argv[1]), perr("\n"), 1);
+		return(perr("bad av\n"), 1);
+	else if (chdir(av[1]) == -1)
+		return(perr("error cd to "), perr(av[1]), perr("\n"), 1);
 	return 0;
 }
 
-static int exec(char **argv, char **envp, int i) {
+static int exec(char **av, char **envp, int i) {
 	int status;
 	int fds[2];
-	int pip = (argv[i] && !strcmp(argv[i], "|"));
+	int pip = (av[i] && !strcmp(av[i], "|"));
 	if (pip && pipe(fds) == -1)
-		return (perr("error: fatal\n"), 1);
+		return(perr("error fatal\n"), 1);
 	int pid = fork();
 	if (!pid) {
-		argv[i] = 0;
+		av[i] = 0;
 		if (pip && (dup2(fds[1], 1) == -1 || close(fds[0]) == -1 || close(fds[1]) == -1))
-			return (perr("error: fatal\n"), 1);
-		execve(*argv, argv, envp);
-		return (perr("error: cannot execute "), perr(*argv), perr("\n"), 1);
+			return(perr("fatal\n"), 1);
+		execve(*av, av, envp);
+		return(perr("cant execute "), perr(*av), perr("\n"), 1);
 	}
 	waitpid(pid, &status, 0);
 	if (pip && (dup2(fds[0], 0) == -1 || close(fds[0]) == -1 || close(fds[1]) == -1))
-		return (perr("error: fatal\n"), 1);
+		return(perr("fatal\n"), 1);
 	return WIFEXITED(status) && WEXITSTATUS(status);
 }
 
-int main(int argc, char **argv, char **envp) {
-	(void) argc;
+int main(int ac, char **av, char **envp) {
+	(void)ac;
 	int status = 0;
-	while(*argv && *(argv + 1)) {
-		argv++;
+	while(*av && *(av + 1)) {
+		av++;
 		int i = 0;
-		while (argv[i] && strcmp(argv[i], "|") && strcmp(argv[i], ";"))
-			i++;		
-		if (!strcmp(*argv, "cd"))
-			status = cd(argv, i);
+		while(av[i] && strcmp(av[i], "|") && strcmp(av[i], ";")) 
+			i++;
+		if (!strcmp(*av, "cd"))
+			status = cd(av, i);
 		else if (i)
-			status = exec(argv, envp, i);
-		argv += i;
+			status = exec(av, envp, i);
+		av += i;
 	}
-	return (status);
+	return(status);
 }
+//pass with practice examshell
