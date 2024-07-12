@@ -20,7 +20,7 @@ class Warlock
 		void setTitle(std::string const &title);
 		void introduce() const;
 
-		void learnSpell(ASpell *spell);
+		void learnSpell(ASpell *r);
 		void forgetSpell(std::string const& spell);
-		void launchSpell(std::string const& spell, ATarget const& s);
+		void launchSpell(std::string const& spell, ATarget const& r);
 };
