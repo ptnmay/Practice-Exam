@@ -55,7 +55,7 @@ void		Warlock::launchSpell(std::string const &spellName, ATarget const& r) {
 	//	s->launch(r);
 	//	delete s;
 	//}
-	ASpell	*s = this->_spellBook.createSpell(spellName);
+	ASpell	*s = this->_spellBook->createSpell(spellName);
 	if (s != NULL) {
 		s->launch(r);
 		delete	s;
