@@ -2,6 +2,9 @@
 
 #include <string>
 #include <iostream>
+#include "ATarget.hpp"
+
+class ATarget;
 
 class ASpell
 {
@@ -12,9 +15,12 @@ class ASpell
     public:
         ASpell(std::string const& name, std::string const& effects);
         ~ASpell();
-        
-        std::string const& getName() const;
-        std::string const& getEffects() const;
 
-        virtual ASpell& clone();
+        std::string const& getEffects() const;
+        std::string const& getName() const;
+
+        virtual ASpell* clone() const = 0;
+
+        void launch(ATarget &r) const;
+
 };

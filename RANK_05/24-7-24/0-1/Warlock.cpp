@@ -30,3 +30,22 @@ void Warlock::introduce() const
 {
     std::cout << this->_name << ": I am " << this->_name << ", " << this->_title << "!" << std::endl;
 }
+
+void Warlock::learnSpell(ASpell *r)
+{
+    this->_spellBook[r->getName()] = r->clone();
+}
+
+void Warlock::forgetSpell(std::string const& spName)
+{
+    if (_spellBook.count(spName))
+        _spellBook.erase(spName);
+}
+
+void Warlock::launchSpell(std::string const& spName, ATarget &r)
+{
+    ASpell *sp = _spellBook[spName];
+    if (sp)
+        sp->launch(r);
+}
+
