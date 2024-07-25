@@ -2,13 +2,7 @@
 
 TargetGenerator::TargetGenerator(void) {}
 
-TargetGenerator::~TargetGenerator(void) {
-	std::map<std::string, ATarget*>::iterator	it = this->_targetBook.begin();
-	while (it != this->_targetBook.end()) {
-		delete it->second;
-		it++;
-	}
-}
+TargetGenerator::~TargetGenerator(void) {}
 
 void		TargetGenerator::learnTargetType(ATarget* r) {
 	if (r != NULL) {

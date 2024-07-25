@@ -17,8 +17,6 @@ class SpellBook
 	private:
 		std::map<std::string, ASpell*>	_spellBook;
 
-		SpellBook(SpellBook const& r);
-		SpellBook& operator=(SpellBook const& r);
 };
 
 #endif

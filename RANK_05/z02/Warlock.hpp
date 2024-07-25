@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-//#include <map>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
 #include "SpellBook.hpp"
@@ -29,12 +28,7 @@ class Warlock
 		std::string	_name;
 		std::string	_title;
 
-		//std::map<std::string, ASpell*>	_spellBook;
 		SpellBook	*_spellBook;
-
-		Warlock(void);
-		Warlock(Warlock const& r);
-		Warlock& operator=(Warlock const& r);
 };
 
 #endif
