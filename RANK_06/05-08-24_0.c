@@ -84,7 +84,6 @@ void	send_msg(int fd)
 	}
 }
 
-
 int main(int ac, char **av)
 {
 	if (ac != 2)
@@ -145,7 +144,8 @@ int main(int ac, char **av)
 					while (extract_message(&client_buff[sockid], &msg))
 					{
 						sprintf(buff_send, "client %d: ", client_ids[sockid]);
-						send(msg);
+						send_msg(sockid);
+						free(msg);
 						msg = 0;
 					}
 				}
