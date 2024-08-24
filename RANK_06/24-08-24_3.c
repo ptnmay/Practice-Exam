@@ -132,6 +132,35 @@ int main(int ac, char **av)
 			send_msg(connfd);
 			continue;
 		}
+		for (int sockid = 3; sockid <= max_socket; ++sockid)
+		{
+			if (FD_ISSET(sockid, &read_set) && sockid != sockfd)
+			{
+				int read = recv(sockid, buff_read, 1000, 0);
+				if (read > 0)
+				{
+					buff_read[read] = 0;
+					client_buff[sockid] = str_join(client_buff[sockid], &read_set);
+					msg = 0;
+					while (extract_message(&client_buff[sockid], &msg))
+					{
+						sprintf(buff_read, "client %d: ", cilent_ids[sockid]);
+						send_msg(sockid);
+						free(msg);
+						msg = 0;
+					}
+				}
+				else
+				{
+					FD_CLR(sockid, &active);
+					sprintf(buff_send, "server:client %d just left\n", client_ids[sockid]);
+					send_msg(sockid);
+					close(sockid);
+					if (client_buff[sockid] != 0)
+						free(client_buff[sockid]);
+				}
+			}
+		}
 	}
-
+	return (0);
 }
