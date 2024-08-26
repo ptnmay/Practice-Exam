@@ -4,6 +4,18 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int max_socket;
+int client_ids[5000];
+char *client_buff[5000];
+
+fd_set active, read_set, write_set;
+
+char buff_read[1001];
+char buff_send[1001];
+char *msg = 0;
 
 int extract_message(char **buf, char **msg)
 {
@@ -52,7 +64,14 @@ char *str_join(char *buf, char *add)
 	return (newbuf);
 }
 
-void send_msg(inf fd)
+void ft_error(char *str)
+{
+	write(2, str, strlen(str));
+	write(2, "\n", 1);
+	exit(1);
+}
+
+void send_msg(int fd)
 {
 	for (int sockid = 3; sockid <= max_socket; ++sockid)
 	{
@@ -65,12 +84,12 @@ void send_msg(inf fd)
 	}
 }
 
-
 int main(int ac, char **av)
 {
 	if (ac != 2)
-		ft_error("Wrong number of argument");
-	int sockfd, connfd, len;
+		ft_error("Wrong number of arguments");
+	int sockfd, connfd;
+	unsigned int len;
 	struct sockaddr_in servaddr, cli; 
 
 	// socket create and verification 
@@ -82,32 +101,28 @@ int main(int ac, char **av)
 	// assign IP, PORT 
 	servaddr.sin_family = AF_INET; 
 	servaddr.sin_addr.s_addr = htonl(2130706433); //127.0.0.1
-	servaddr.sin_port = htons(8081); 
+	servaddr.sin_port = htons(atoi(av[1])); 
   
 	// Binding newly created socket to given IP and verification 
 	if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr))) != 0)
 		ft_error("Fatal error");
+
 	if (listen(sockfd, 10) != 0)
 		ft_error("Fatal error");
+
 	len = sizeof(cli);
-	max_socket = sockfd;
+	max_socket = sockid;
 	FD_ZERO(&active);
 	FD_SET(sockid, &active);
-	int client_id = 0;
 	while (1)
 	{
 		read_set = write_set = active;
-		if (select(max_socket + 1, &read_set, &write_set, 0, 0) <= 0)
+		if (select(sockid, &read_set, &write_set, 0, 0) <= 0)
 			continue;
-		if (FD_ISSET(sockid, &read_set) && sockid != sockfd)
-		{
-			connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
-			if (connfd < 0)
-				ft_error("Fatal error");
-			FD_SET(connfd, &read_set);
-			client_ids[connfd] = client_id++;
-			client_buff[connfd] = 0;
-
-		}
-}
+		if ()
 	}
+	connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
+	if (connfd < 0)
+		ft_error("Fatal error");
+
+}
