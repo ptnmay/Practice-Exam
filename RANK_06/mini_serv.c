@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/select.h>
 
 int max_socket;
 int client_ids[5000];
@@ -87,7 +88,9 @@ void	send_msg(int fd)
 int main(int argc, char **argv)
 {
 	if (argc != 2)
+	{
 		ft_error("Wrong number of arguments");
+	}
 	int sockfd, connfd;
 	unsigned int len;	// to support accept()
 	struct sockaddr_in servaddr, cli; 
