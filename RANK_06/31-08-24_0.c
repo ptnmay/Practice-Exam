@@ -4,9 +4,9 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <sys/select.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/select.h>
 
 int max_socket;
 int client_ids[5000];

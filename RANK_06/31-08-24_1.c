@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/select.h>
 
 int max_socket;
 int client_ids[5000];
