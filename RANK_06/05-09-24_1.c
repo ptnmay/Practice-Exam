@@ -120,7 +120,7 @@ int main(int ac, char **av)
 		read_set = write_set = active;
 		if (select(max_socket + 1, &read_set, &write_set, 0, 0) <= 0)
 			continue;
-		if (FD_ISSET(sockid, &read_set))
+		if (FD_ISSET(sockfd, &read_set)) //sockfd
 		{
 			connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
 			if (connfd < 0)
@@ -166,4 +166,4 @@ int main(int ac, char **av)
 	return (0);
 }
 
-//PERFECT!!!
+//nah sockfd and sockid still confuse
